@@ -4,23 +4,20 @@ conference
 Unknown (will be known in some while) University Conference 2013
 Website with only one purpose to accept registrants for conference and help operator manage their billing
 
-Team
-====
+### Team
 
  - Alexey Fedorov (Waterlink) - Backend Developer, QA
  - Maxim Baz (z0rch) - Frontend Developer
  - Galina Zaytseva - UI/UX
 
-Technologies
-============
+### Technologies
 
  - PHP/CodeIgniter for backend
  - coffee-script and jQuery for frontend
  - MySQL for DB backend
  - Bootstrap as CSS framework
 
-Vision
-======
+### Vision
 
 User finds himself at conference promo site. It has link (or big button, whatever) to register page.
 Being interested he clicks it. There this project begins.
@@ -39,13 +36,11 @@ Once user pays bill, operator sees his id in clientbank application and searches
 
 Admin application is part of this project too.
 
-Goal
-====
+### Goal
 
 To make a stable and nice registration for conference in a short amount of time (1 month maximum).
 
-Global tasks
-============
+### Global tasks
 
  1. Register application
      - create RESTfull backend for participant/listeners data
