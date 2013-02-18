@@ -19,10 +19,23 @@ role :app, "localhost"
 task :deploy_path_init do
 	run "#{sudo} mkdir -p #{deploy_to}"
 	run "#{sudo} chown -R `whoami` #{deploy_to}"
+	run "#{sudo} chgrp -R www-data #{deploy_to}"
+	run "#{sudo} usermod -a -G www-data www-data"
+	run "#{sudo} usermod -a -G www-data root"
+	run "#{sudo} chmod -R 666 #{deploy_to}"
 end
-before(:deploy, :deploy_path_init)
+before :deploy, :deploy_path_init
 
 task :deploy_submodules do
 	run "cd #{deploy_to}/current; git submodule init; git submodule update"
 end
-after(:deploy, :deploy_submodules)
+after :deploy, :deploy_submodules
+
+desc "Configures nginx config for this application."
+task :setup_nginx_site do
+	site_conf = ERB.new File.read("templates/#{application}.conf.erb")
+	put site_conf.result(binding), ".#{application}.conf"
+	run "#{sudo} cp .#{application}.conf #{nginx_prefix}/conf/sites-available/#{application}.conf"
+	run "#{sudo} ln -s #{nginx_prefix}/conf/sites-available/#{application}.conf #{nginx_prefix}/conf/sites-enabled/#{application}.conf; true"
+end
+after :setup_nginx_site, "nginx:reload"

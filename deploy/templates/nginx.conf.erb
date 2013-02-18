@@ -1,0 +1,20 @@
+worker_processes 2;
+
+user www-data;
+
+events {
+	worker_connections	1024;
+}
+
+http {
+	include				mime.types;
+	include				fastcgi_params;
+	default_type 		application/octet-stream;
+
+	sendfile 			on;
+	keepalive_timeout 	65;
+	gzip				on;
+
+	include 			conf.d/*;
+	include 			sites-enabled/*;
+}

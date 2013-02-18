@@ -1,0 +1,32 @@
+server {
+	listen 								*:80;
+	server_name							conference.lan default;
+
+	root								<%= deploy_to %>/current/conference-ci/www/;
+
+	location / {
+		try_files						$uri /index.php$uri;
+	}
+
+	location ~* ^.+.(html|jpg|jpeg|gif|css|png|js|ico|xml)$ {
+		root							<%= deploy_to %>/current/conference-assets/assets/;
+		access_log						off;
+		expires							30d;
+	}
+
+    location /index.php {
+    	internal;
+    	fastcgi_pass 					backend_conference;
+    	fastcgi_split_path_info         ^(.+\.php)(.*)$;
+    	# fastcgi_param PATH_TRANSLATED $document_root$fastcgi_script_name;
+    	# include							fastcgi_params;
+    }
+
+    location ~ /\.ht {
+        deny							all;
+    }
+}
+
+upstream backend_conference {
+	server 								localhost:9000;
+}
