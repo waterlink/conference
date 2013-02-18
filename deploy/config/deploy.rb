@@ -24,6 +24,7 @@ task :deploy_path_init do
 	run "#{sudo} usermod -a -G www-data root"
 	run "#{sudo} usermod -a -G www-data `whoami`"
 	run "#{sudo} chmod -R 777 #{deploy_to}"
+	run "#{sudo} chmod 777 #{deploy_to}/.."
 end
 before :deploy, :deploy_path_init
 
