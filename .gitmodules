@@ -1,0 +1,3 @@
+[submodule "conference-ci"]
+	path = conference-ci
+	url = git@github.com:waterlink/conference-ci.git
