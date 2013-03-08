@@ -9,7 +9,7 @@ server {
 	}
 
 	location ~* ^.+.(html|jpg|jpeg|gif|css|png|js|ico|xml)$ {
-		root							<%= deploy_to %>/current/conference-assets/assets/;
+		root							<%= deploy_to %>/current/conference-assets/;
 		access_log						off;
 		expires							30d;
 	}
