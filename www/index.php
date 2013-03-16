@@ -56,7 +56,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = '../code/system';
+	$system_path = '/home/dotcloud/code/conference-ci/system';
 
 /*
  *---------------------------------------------------------------
@@ -72,7 +72,7 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = '../code/application';
+	$application_folder = '/home/dotcloud/code/conference-ci/code/application';
 
 /*
  * --------------------------------------------------------------------
