@@ -4,3 +4,6 @@
 [submodule "conference-assets"]
 	path = conference-assets
 	url = git@github.com:waterlink/conference-assets.git
+[submodule "conference-dotcloud"]
+	path = conference-dotcloud
+	url = git@github.com:waterlink/conference-dotcloud.git
