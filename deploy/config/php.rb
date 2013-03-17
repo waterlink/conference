@@ -19,6 +19,6 @@ namespace :php do
 
 	desc "Starts php-fpm server."
 	task :start do
-		run "#{sudo} /opt/php/sbin/php-fpm"
+		run "#{sudo} /opt/php/sbin/php-fpm -c /opt/php/etc"
 	end
 end

@@ -7,3 +7,6 @@
 [submodule "conference-dotcloud"]
 	path = conference-dotcloud
 	url = git@github.com:waterlink/conference-dotcloud.git
+[submodule "conference-uploads"]
+	path = conference-uploads
+	url = git@github.com:waterlink/conference-uploads.git
